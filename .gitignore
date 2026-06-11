@@ -1,0 +1,28 @@
+# OS Generated Files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Qt/QMake
+build/
+bin/
+Makefile
+.qmake.stash
+*.app/
+*.o
+moc_*
+ui_*
+qrc_*
+
+# IDEs
+.idea/
+.vscode/
+
+# Other built binaries
+*.obj
+*.exe
+*.dll
+
+# App Data
+.agent/
+testfile/
