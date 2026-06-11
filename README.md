@@ -1,82 +1,36 @@
-# IoTScript Studio & Web Simulator 💻🔌
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-An educational Compiler, Virtual Machine, and Integrated Development Environment (IDE) built in C++ (Qt 5) for desktop, alongside an **Interactive, Real-Time Web-Based IoT Simulator** powered by Next.js, React Flow, and a sandboxed Web Worker interpreter.
+## Getting Started
 
-**IoTScript Studio** abstracts away the complexity of embedded C++ and physical hardware debugging by providing a simplified, custom grammar ("IoTScript") and in-memory execution runtimes that simulate hardware sensor states in real-time.
+First, run the development server:
 
----
-
-## 🚀 The Feature Showcase (Selling Points)
-
-We built a complete end-to-end language pipeline that spans both C++ Desktop and modern Web architectures. **Key features to demo:**
-
-1. **The Custom Language Pipeline:** A custom Lexer and Parser built from scratch. It parses custom methods like `readSensor("temperature", var)` and compiles them into a custom Intermediate Representation (IR) / Abstract Syntax Tree (AST).
-2. **Web-Based Interactive Simulator:** A spatial, visual 2D smart grid built with React Flow, allowing users to drag and drop sensors and actuators (ACs, smart bulbs, speakers, buttons), wire them together visually, and see signals propagate live.
-3. **Multi-Threaded Worker Sandboxing:** A background Web Worker runs the AST interpreter in a separate thread. This prevents infinite loops (like `while(true) {}`) from freezing the UI thread, enforcing a strict 100,000-instruction safety budget.
-4. **Top-Down Ambient Syncing:** Environmental sliders (Room Temperature, Ambient Light, Motion) dynamically synchronize with placed canvas sensor nodes in real-time, matching physical IoT environmental responses.
-5. **Tokyo Night Theme & Monaco Editor:** A beautifully integrated developer interface using Monaco Editor (the engine powering VS Code) styled in Tokyonight-dark with custom typography, responsive panel drawers, and a monospace console logging system.
-6. **Sub-process Git Pipeline (Desktop):** Direct asynchronous `QProcess` pipes let desktop users run Git commands directly inside the IDE, forwarding outputs seamlessly to the console.
-
----
-
-## 🛠️ How to Run
-
-### 🖥️ Option A: Desktop IDE (C++ / Qt 5)
-
-Running the desktop IDE on macOS is completely automated.
-
-1. Open your terminal in the project root folder.
-2. Ensure you have made the script executable: `chmod +x start.sh`
-3. Hit run:
-```bash
-./start.sh
-```
-
-*(This wrapper script will automatically locate `IoTScriptIDE.app` and launch it. If the app is missing, it utilizes Homebrew's `qmake` to safely rebuild the `.app` bundle from the raw C++ code).*
-
----
-
-### 🌐 Option B: Web-Based IoT Simulator (Next.js / React Flow)
-
-The modern interactive web simulator runs entirely in the browser.
-
-1. Navigate to the web simulator folder:
-```bash
-cd iot-web-simulator
-```
-2. Install dependencies:
-```bash
-npm install
-```
-3. Start the local development server:
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
-4. Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 👥 Meet the Team & Architecture
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-**Team:** codeForge (Hemal Badola, Shristi Rawat, Saniya, Ansh Bhandari)
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### 1. Core Architecture, VM Compiler, & Web Simulator (Hemal Badola - Lead)
-* **Custom Lexer/Parser Engine:** Wrote the C++ loops and TypeScript equivalents to tokenize and parse custom grammar blocks.
-* **Desktop & Web Interpreters:** Engineered the C++ Qt Virtual Machine and the TypeScript AST Evaluator executing isolated device scopes.
-* **Web Worker & Canvas Sandbox:** Architected the Next.js visual workspace using React Flow, implementing dynamic wiring constraints and multi-threaded Web Worker execution.
-* **QProcess Architecture:** Designed the multithreaded pipelines that bind native OS Git terminals to the desktop IDE.
+## Learn More
 
-### 2. File Systems & Persistent Data (Ansh Bhandari)
-* **I/O Tree Model (`QFileSystemModel`):** Built the strict-scoping visual file explorer.
-* **LRU Caching (`QSettings`):** Serialized caching protocols to handle the dynamic persistence of the "Recent Files History" array.
-* **Background Watchdogs (`QTimer`):** Programmed the asynchronous 30s daemon thread responsible for silent disk-write operations (Auto-Save).
+To learn more about Next.js, take a look at the following resources:
 
-### 3. Editor Algorithms (Saniya)
-* **Regex Engine (`QTextDocument::FindFlags`):** Engineered the non-blocking search algorithms to handle dynamic deep-string iteration and live memory replacements.
-* **Memory Pointers (`QTextCursor`):** Wrote the coordinate mathematics locking the visual scrollbar viewport to precise integer offsets for desktop "Go-To-Line" features.
-* **Viewport Mutators:** Captured raw keyboard intercept events (`Ctrl++`, `Ctrl+-`) to dynamically recompute application-wide font sizes.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### 4. Aesthetics & Event Tracking (Shristi Rawat)
-* **Tokyo Night Engine:** Compiled desktop QSS stylesheets and Web glassmorphic CSS layers for premium aesthetics.
-* **Regex Syntax Painting:** Configured `QRegularExpression` hooks directly connected to the deep document tree to paint IoT keywords neon green on the fly.
-* **Real-time UX Metrics:** Bound calculation loops directly to the editor's Qt lifecycle hooks, mathematically calculating row/col offsets.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
